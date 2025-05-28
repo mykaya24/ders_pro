@@ -1,0 +1,25 @@
+- aktörler
+	- öğretmen
+	- öğrenci
+	- yönetici
+	- veli
+- modüller
+	- ders
+	- sınıf
+	- müfredat
+	- ders programı
+	- öğrenci
+	- öğretmen
+	- veli
+	- yoklama
+	- öğrenci haber
+	- sistem değerleri (Yıl-Dönem vb.)
+- table
+	- users
+	- actors
+	- user_actors
+	- courses
+	- classes
+	- syllabus
+	- course_schedule
+	
