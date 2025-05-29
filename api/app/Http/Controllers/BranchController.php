@@ -2,28 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreBranchRequest;
+use App\Http\Resources\BranchResource;
+use App\Models\Branch;
 use App\Services\BranchService;
-use Illuminate\Http\Request;
 
 class BranchController extends Controller
 {
-    public function __construct(
-        protected BranchService $service
-    ) {}
+    public function __construct(protected BranchService $service) {}
 
-    public function index()
+    public function store(StoreBranchRequest $request)
     {
-        return response()->json($this->service->listAll());
+        $dto = $request->toDto();
+        $branch = $this->service->create($dto);
+
+        return new BranchResource($branch);
     }
 
-    public function store(Request $request)
+    public function update(StoreBranchRequest $request, Branch $branch)
     {
-        $validated = $request->validate([
-            'name' => 'required|string',
-            'level' => 'required|in:primary,secondary,high',
-            'is_active' => 'boolean'
-        ]);
+        $dto = $request->toDto();
+        $branch = $this->service->update($branch, $dto);
 
-        return response()->json($this->service->create($validated), 201);
+        return new BranchResource($branch);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\DataTransferObjects\BranchDto;
 use App\Models\Branch;
 use App\Repositories\BranchRepositoryInterface;
 
@@ -11,14 +12,13 @@ class BranchService
         protected BranchRepositoryInterface $repository
     ) {}
 
-    public function listAll()
+    public function create(BranchDto $dto): Branch
     {
-        return $this->repository->all();
+        return $this->repository->create($dto);
     }
 
-    public function create(array $data)
+    public function update(Branch $branch, BranchDto $dto): Branch
     {
-        $data['level'] = Branch::from($data['level']);
-        return $this->repository->create($data);
+        return $this->repository->update($branch, $dto);
     }
 }

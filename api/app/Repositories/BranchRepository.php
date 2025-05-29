@@ -1,34 +1,30 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\Eloquent;
 
+use App\DataTransferObjects\BranchDto;
 use App\Models\Branch;
+use App\Repositories\BranchRepositoryInterface;
 
 class BranchRepository implements BranchRepositoryInterface
 {
-    public function all()
+    public function create(BranchDto $dto): Branch
     {
-        return Branch::all();
+        return Branch::create([
+            'name' => $dto->name,
+            'is_active' => $dto->is_active,
+            'branch_teacher_id' => $dto->branch_teacher_id,
+        ]);
     }
 
-    public function find(int $id): ?Branch
+    public function update(Branch $branch, BranchDto $dto): Branch
     {
-        return Branch::find($id);
-    }
+        $branch->update([
+            'name' => $dto->name,
+            'is_active' => $dto->is_active,
+            'branch_teacher_id' => $dto->branch_teacher_id,
+        ]);
 
-    public function create(array $data): Branch
-    {
-        return Branch::create($data);
-    }
-
-    public function update(int $id, array $data): bool
-    {
-        $class = Branch::findOrFail($id);
-        return $class->update($data);
-    }
-
-    public function delete(int $id): bool
-    {
-        return Branch::destroy($id);
+        return $branch;
     }
 }
