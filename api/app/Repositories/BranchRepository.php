@@ -11,6 +11,7 @@ class BranchRepository implements BranchRepositoryInterface
     public function create(BranchDto $dto): Branch
     {
         return Branch::create([
+            'class' => $dto->class,
             'name' => $dto->name,
             'is_active' => $dto->is_active,
             'branch_teacher_id' => $dto->branch_teacher_id,
@@ -20,6 +21,7 @@ class BranchRepository implements BranchRepositoryInterface
     public function update(Branch $branch, BranchDto $dto): Branch
     {
         $branch->update([
+            'class' => $dto->class,
             'name' => $dto->name,
             'is_active' => $dto->is_active,
             'branch_teacher_id' => $dto->branch_teacher_id,

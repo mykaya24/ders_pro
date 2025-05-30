@@ -15,7 +15,8 @@ class StoreBranchRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255',
+            'class' => 'required|int|max:2',
+            'name' => 'required|string|max:2',
             'is_active' => 'boolean',
             'branch_teacher_id' => 'required|integer|exists:teachers,id',
         ];
@@ -25,6 +26,7 @@ class StoreBranchRequest extends FormRequest
     {
         return new BranchDto(
             id: $this->input('id'),
+            class: $this->input('class'),
             name: $this->input('name'),
             is_active: $this->boolean('is_active', true),
             branch_teacher_id: (int) $this->input('branch_teacher_id'),

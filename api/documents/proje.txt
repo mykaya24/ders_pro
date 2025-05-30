@@ -13,13 +13,21 @@
 	- veli
 	- yoklama
 	- öğrenci haber
-	- sistem değerleri (Yıl-Dönem vb.)
+	- sistem değerleri (Aktif Yıl-Dönem vb.)
 - table
-	- users
-	- actors
-	- user_actors
-	- courses
-	- classes
-	- syllabus
-	- course_schedule
-	
+	- users (id,email,actor...)
+	- teachers
+	- students 
+	- courses (id,name,)
+	- branches (şube-sınıf) (id,class,name,is_active,teacher_id)
+	- syllabus (müfredat) (id,year,semestre,course_id,hour,lab_hour)
+	- course_schedule (ders programı) (id,year,semestre,)
+	- attendance (yoklama)
+	- news
+	- system_variable
+		* aktif yıl
+		* aktif dönem
+		* ders saati (50 dk ders 10dk tenefüs)
+		* ders başlangıç
+		* ders bitiş
+	---------------------------------- sys_semestre (id,year,semestre,)

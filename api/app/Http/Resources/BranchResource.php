@@ -16,6 +16,7 @@ class BranchResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'class' => $this->class,
             'name' => $this->name,
             'is_active' => (bool) $this->is_active,
             'branch_teacher_id' => $this->branch_teacher_id,

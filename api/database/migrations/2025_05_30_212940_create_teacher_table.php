@@ -11,15 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('branches', function (Blueprint $table) {
+        Schema::create('teachers', function (Blueprint $table) {
+        
             $table->id();
-            $table->integer('class');
+            $table->string('tc');
             $table->string('name');
-            $table->boolean('is_active')->default(true);
-            $table->bigInteger('branch_teacher_id');
+            $table->string('surname');
+            $table->string('adress');
+            $table->string('phone');
+            $table->bigInteger('user_id');
             $table->timestamps();
 
-            $table->foreign('branch_teacher_id')->references('id')->on('teachers');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('classes');
+        Schema::dropIfExists('teachers');
     }
 };
