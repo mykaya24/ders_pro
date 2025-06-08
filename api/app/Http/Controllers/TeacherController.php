@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreTeacherRequest;
+use App\Http\Resources\TeacherResource;
+use App\Models\Teacher;
+use App\Services\TeacherService;
 
-class BranchController extends Controller
+class TeacherController extends Controller
 {
     public function __construct(protected TeacherService $service) {}
 

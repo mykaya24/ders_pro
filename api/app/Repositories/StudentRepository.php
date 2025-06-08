@@ -2,16 +2,17 @@
 
 namespace App\Repositories\Eloquent;
 
-use App\DataTransferObjects\TeacherDto;
-use App\Models\Teacher;
-use App\Repositories\TeacherRepositoryInterface;
+use App\DataTransferObjects\StudentDto;
+use App\Models\Student;
+use App\Repositories\StudentRepositoryInterface;
 
-class TeacherRepository implements TeacherRepositoryInterface
+class StudentRepository implements StudentRepositoryInterface
 {
-    public function create(TeacherDto $dto):Teacher
+    public function create(StudentDto $dto):Student
     {
-        return Teacher::create([
+        return Student::create([
             'tc' => $dto->tc,
+            'student_number' => $dto->student_number,
             'name' => $dto->name,
             'surname' => $dto->surname,
             'adress' => $dto->adress,
@@ -23,10 +24,11 @@ class TeacherRepository implements TeacherRepositoryInterface
 
 
     
-    public function update(Teacher $teacher, TeacherDto $dto): Teacher 
+    public function update(Student $student, StudentDto $dto): Student 
     {
-        $teacher->update([
+        $student->update([
             'tc' => $dto->tc,
+            'student_number' => $dto->student_number,
             'name' => $dto->name,
             'surname' => $dto->surname,
             'adress' => $dto->adress,
@@ -35,6 +37,6 @@ class TeacherRepository implements TeacherRepositoryInterface
             'user_id' => $dto->user_id,
         ]);
 
-        return $teacher;
+        return $student;
     }
 }

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('surname');
             $table->string('adress');
             $table->string('phone');
+            $table->boolean('is_active')->default(true);
             $table->bigInteger('user_id');
             $table->timestamps();
 

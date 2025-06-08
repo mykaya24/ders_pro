@@ -15,9 +15,11 @@
 	- öğrenci haber
 	- sistem değerleri (Aktif Yıl-Dönem vb.)
 - table
-	- users (id,email,actor...)
-	- teachers
-	- students 
+	+ users (id,email,actor...)
+	+ teachers
+	- teacher_program (id,teacher_id,day,hour,workable)
+		iki türlü olabilir, ya sadece şu tarihler hariç müsaitim yada sadece şu saatler müsatim diyebilir
+	+ students 
 	- courses (id,name,)
 	- branches (şube-sınıf) (id,class,name,is_active,teacher_id)
 	- syllabus (müfredat) (id,year,semestre,course_id,hour,lab_hour)

@@ -8,7 +8,5 @@ use App\Models\Teacher;
 interface TeacherRepositoryInterface
 {
     public function create(TeacherDto $dto): Teacher;
-    public function update(TeacherDto $branch, TeacherDto $dto): Branch;
-    public function update(TeacherDto $branch, TeacherDto $dto): 
-;
+    public function update(Teacher $teacher, TeacherDto $dto): Teacher;
 }

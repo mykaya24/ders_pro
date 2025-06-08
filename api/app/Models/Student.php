@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Teacher extends Model
+class Student extends Model
 {
 
-    protected $fillable = ['tc', 'name', 'surname', 'adress', 'phone', 'is_active', 'user_id'];
+    protected $fillable = ['tc', 'student_number','name', 'surname', 'adress', 'phone', 'is_active', 'user_id'];
 
     protected $casts = [
         'is_active' => 'boolean',

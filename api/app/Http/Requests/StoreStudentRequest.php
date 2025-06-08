@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\DataTransferObjects\TeacherDto;
+use App\DataTransferObjects\StudentDto;
 
-class StoreTeacherRequest extends FormRequest
+class StoreStudentRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -16,6 +16,7 @@ class StoreTeacherRequest extends FormRequest
     {
         return [
             'tc' => 'required|string',
+            'student_number' => 'required|string',
             'name' => 'required|string',
             'surname' => 'required|string',
             'adress' => 'required|string',
@@ -25,11 +26,12 @@ class StoreTeacherRequest extends FormRequest
         ];
     }
 
-    public function toDto(): TeacherDto
+    public function toDto(): StudentDto
     {
-        return new TeacherDto(
+        return new StudentDto(
             id: $this->input('id'),
             tc: $this->input('tc'),
+            student_number: $this->input('student_number'),
             name: $this->input('name'),
             surname: $this->input('surname'),
             adress: $this->input('adress'),
