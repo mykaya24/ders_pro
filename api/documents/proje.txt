@@ -20,9 +20,11 @@
 	- teacher_program (id,teacher_id,day,hour,workable)
 		iki türlü olabilir, ya sadece şu tarihler hariç müsaitim yada sadece şu saatler müsatim diyebilir
 	+ students 
-	- courses (id,name,)
-	- branches (şube-sınıf) (id,class,name,is_active,teacher_id)
-	- syllabus (müfredat) (id,year,semestre,course_id,hour,lab_hour)
+	+ courses (id,name,)
+	+ branches (şube-sınıf) (id,class,name,is_active)
+	- branch_year (id,year,branch_id,teacher_id)
+	- student_branch (id,branch_year_id,student_id)
+	- syllabus (müfredat) (id,year,semestre,class,course_id,hour,lab_hour)
 	- course_schedule (ders programı) (id,year,semestre,)
 	- attendance (yoklama)
 	- news

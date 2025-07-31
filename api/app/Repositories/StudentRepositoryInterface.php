@@ -8,5 +8,5 @@ use App\Models\Student;
 interface StudentRepositoryInterface
 {
     public function create(StudentDto $dto): Student;
-    public function update(Student $teacher, StudentDto $dto): Student;
+    public function update(Student $student, StudentDto $dto): Student;
 }
